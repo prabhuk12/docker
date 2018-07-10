@@ -34,6 +34,7 @@ LABEL maintainer="semoss@semoss.org"
 ENV LD_LIBRARY_PATH=/usr/lib:/usr/local/lib/R/site-library/rJava/jri
 ENV R_HOME=/usr/lib/R
 ENV SEMOSS_VERSION=0.0.3
+ENV PATH=$PATH:/opt/apache-maven-3.5.3/bin:/opt/semosshome/semoss-artifacts/artifacts/scripts
 
 RUN wget -P /opt https://archive.apache.org/dist/tomcat/tomcat-8/v8.0.41/bin/apache-tomcat-8.0.41.tar.gz \
 	&& cd /opt && tar -xvf /opt/apache-tomcat-8.0.41.tar.gz \
@@ -44,22 +45,13 @@ RUN wget -P /opt https://archive.apache.org/dist/tomcat/tomcat-8/v8.0.41/bin/apa
 	&& export PATH=$PATH:/opt/apache-maven-3.5.3/bin \
 	&& mkdir /opt/semosshome \
 	&& cd /opt/semosshome \
+	&& apt install curl \
 	&& git clone https://github.com/SEMOSS/semoss-artifacts \
-	&& cd /opt/semosshome/semoss-artifacts/artifacts/home && mvn clean install -Dci.version=$SEMOSS_VERSION-SNAPSHOT \
-	&& cp -r /opt/semosshome/semoss-artifacts/artifacts/home/semoss*/* /opt/semosshome \
-	&& cd /opt/semosshome/semoss-artifacts/artifacts/web && mvn clean install -Dci.version=$SEMOSS_VERSION-SNAPSHOT \
-	&& cp -r /opt/semosshome/semoss-artifacts/artifacts/web/semoss*/* /opt/apache-tomcat-8.0.41/webapps/SemossWeb \
-	&& cd /opt/semosshome/semoss-artifacts/artifacts/war && mvn clean install -Dci.version=$SEMOSS_VERSION-SNAPSHOT \
-	&& cp -r /opt/semosshome/semoss-artifacts/artifacts/war/monolith*/* /opt/apache-tomcat-8.0.41/webapps/Monolith \
-	&& cd /opt/semosshome/semoss-artifacts/artifacts/lib && mvn clean install -Dci.version=$SEMOSS_VERSION-SNAPSHOT \
-	&& cp -r /opt/semosshome/semoss-artifacts/artifacts/lib/monolith*/* /opt/apache-tomcat-8.0.41/webapps/Monolith \
-	&& cp -r /opt/semosshome/semoss-artifacts/x/RDF_Map.prop /opt/semosshome \
-	&& cp -r /opt/semosshome/semoss-artifacts/x/web.xml /opt/apache-tomcat-8.0.41/webapps/Monolith/WEB-INF \
-	&& cp -r /opt/semosshome/semoss-artifacts/artifacts/scripts/update_latest_dev.sh /opt/apache-tomcat-8.0.41/bin \
+	&& chmod 777 /opt/semosshome/semoss-artifacts/artifacts/scripts/* \
+	&& /opt/semosshome/semoss-artifacts/artifacts/scripts/update_latest_dev.sh \
 	&& mkdir /opt/semosshome/tmp \
-	&& chmod 777 /opt/apache-tomcat-8.0.41/bin/*.sh \
-	&& echo "SEMOSS_VERSION=$SEMOSS_VERSION" > /opt/semosshome/semoss-artifacts/ver.txt
-
+	&& chmod 777 /opt/apache-tomcat-8.0.41/bin/*.sh
+ 
 WORKDIR /opt/apache-tomcat-8.0.41/bin
 
 CMD ["catalina.sh", "run"]
