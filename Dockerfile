@@ -37,21 +37,21 @@ ENV SEMOSS_VERSION=0.0.3
 ENV PATH=$PATH:/opt/apache-maven-3.5.3/bin:/opt/semosshome/semoss-artifacts/artifacts/scripts
 
 RUN wget -P /opt https://archive.apache.org/dist/tomcat/tomcat-8/v8.0.41/bin/apache-tomcat-8.0.41.tar.gz \
-RUN cd /opt && tar -xvf /opt/apache-tomcat-8.0.41.tar.gz \
-RUN mkdir /opt/apache-tomcat-8.0.41/webapps/SemossWeb \
-RUN mkdir /opt/apache-tomcat-8.0.41/webapps/Monolith \
-RUN wget -P /opt http://apache.claz.org/maven/maven-3/3.5.3/binaries/apache-maven-3.5.3-bin.tar.gz \
-RUN cd /opt && tar -xvf apache-maven-3.5.3-bin.tar.gz \
-RUN export PATH=$PATH:/opt/apache-maven-3.5.3/bin \
-RUN mkdir /opt/semosshome \
-RUN cd /opt/semosshome \
-RUN apt install -y curl \
-RUN git clone https://github.com/SEMOSS/semoss-artifacts \
-RUN chmod 777 /opt/semosshome/semoss-artifacts/artifacts/scripts/* \
-RUN /opt/semosshome/semoss-artifacts/artifacts/scripts/update_latest_dev.sh \
-RUN mkdir /opt/semosshome/tmp \
-RUN chmod 777 /opt/apache-tomcat-8.0.41/bin/*.sh \
-RUN apt install -y nginx
+	&& cd /opt && tar -xvf /opt/apache-tomcat-8.0.41.tar.gz \
+	&& mkdir /opt/apache-tomcat-8.0.41/webapps/SemossWeb \
+	&& mkdir /opt/apache-tomcat-8.0.41/webapps/Monolith \
+	&& wget -P /opt http://apache.claz.org/maven/maven-3/3.5.3/binaries/apache-maven-3.5.3-bin.tar.gz \
+	&& cd /opt && tar -xvf apache-maven-3.5.3-bin.tar.gz \
+	&& export PATH=$PATH:/opt/apache-maven-3.5.3/bin \
+	&& mkdir /opt/semosshome \
+	&& cd /opt/semosshome \
+	&& apt install -y curl \
+	&& git clone https://github.com/SEMOSS/semoss-artifacts \
+	&& chmod 777 /opt/semosshome/semoss-artifacts/artifacts/scripts/* \
+	&& /opt/semosshome/semoss-artifacts/artifacts/scripts/update_latest_dev.sh \
+	&& mkdir /opt/semosshome/tmp \
+	&& chmod 777 /opt/apache-tomcat-8.0.41/bin/*.sh \
+	&& apt install -y nginx
  
 WORKDIR /opt/apache-tomcat-8.0.41/bin
 
