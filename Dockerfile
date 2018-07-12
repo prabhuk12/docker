@@ -45,13 +45,13 @@ RUN wget -P /opt https://archive.apache.org/dist/tomcat/tomcat-8/v8.0.41/bin/apa
 	&& export PATH=$PATH:/opt/apache-maven-3.5.3/bin \
 	&& mkdir /opt/semosshome \
 	&& cd /opt/semosshome \
-	&& apt install curl \
+	&& apt install -y curl \
 	&& git clone https://github.com/SEMOSS/semoss-artifacts \
 	&& chmod 777 /opt/semosshome/semoss-artifacts/artifacts/scripts/* \
 	&& /opt/semosshome/semoss-artifacts/artifacts/scripts/update_latest_dev.sh \
 	&& mkdir /opt/semosshome/tmp \
-	&& chmod 777 /opt/apache-tomcat-8.0.41/bin/*.sh
-	#&& apt install nginx
+	&& chmod 777 /opt/apache-tomcat-8.0.41/bin/*.sh \
+	&& apt install -y nginx
  
 WORKDIR /opt/apache-tomcat-8.0.41/bin
 
