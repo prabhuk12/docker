@@ -51,15 +51,9 @@ RUN wget -P /opt https://archive.apache.org/dist/tomcat/tomcat-8/v8.0.41/bin/apa
 	&& /opt/semosshome/semoss-artifacts/artifacts/scripts/update_latest_dev.sh \
 	&& mkdir /opt/semosshome/tmp \
 	&& chmod 777 /opt/apache-tomcat-8.0.41/bin/*.sh \
-	&& apt install -y nginx
+	&& apt install -y nginx 
+	
  
 WORKDIR /opt/apache-tomcat-8.0.41/bin
 
 CMD ["catalina.sh", "run"]
-
-
-
-
-
-
-
