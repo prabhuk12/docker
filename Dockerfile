@@ -40,7 +40,7 @@ RUN wget -P /opt https://archive.apache.org/dist/tomcat/tomcat-8/v8.0.41/bin/apa
 	&& cd /opt && tar -xvf /opt/apache-tomcat-8.0.41.tar.gz \
 	&& mkdir /opt/apache-tomcat-8.0.41/webapps/SemossWeb \
 	&& mkdir /opt/apache-tomcat-8.0.41/webapps/Monolith \
-	&& wget -P /opt http://apache.claz.org/maven/maven-3/3.5.3/binaries/apache-maven-3.5.3-bin.tar.gz \
+	&& wget -P /opt https://apache.claz.org/maven/maven-3/3.5.3/binaries/apache-maven-3.5.3-bin.tar.gz \
 	&& cd /opt && tar -xvf apache-maven-3.5.3-bin.tar.gz \
 	&& export PATH=$PATH:/opt/apache-maven-3.5.3/bin \
 	&& mkdir /opt/semosshome \
