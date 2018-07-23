@@ -33,7 +33,7 @@ LABEL maintainer="semoss@semoss.org"
 
 ENV LD_LIBRARY_PATH=/usr/lib:/usr/local/lib/R/site-library/rJava/jri
 ENV R_HOME=/usr/lib/R
-ENV SEMOSS_VERSION=0.0.3
+#ENV SEMOSS_VERSION=0.0.3
 ENV PATH=$PATH:/opt/apache-maven-3.5.3/bin:/opt/semosshome/semoss-artifacts/artifacts/scripts
 
 RUN wget -P /opt https://archive.apache.org/dist/tomcat/tomcat-8/v8.0.41/bin/apache-tomcat-8.0.41.tar.gz \
