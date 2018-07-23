@@ -46,6 +46,7 @@ RUN wget -P /opt https://archive.apache.org/dist/tomcat/tomcat-8/v8.0.41/bin/apa
 	&& mkdir /opt/semosshome \
 	&& cd /opt/semosshome \
 	&& apt install -y curl \
+	&& git config --global http.sslverify false \
 	&& git clone https://github.com/SEMOSS/semoss-artifacts \
 	&& chmod 777 /opt/semosshome/semoss-artifacts/artifacts/scripts/* \
 	&& /opt/semosshome/semoss-artifacts/artifacts/scripts/update_latest_dev.sh \
