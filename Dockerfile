@@ -52,9 +52,10 @@ RUN wget -P /opt https://archive.apache.org/dist/tomcat/tomcat-8/v8.0.41/bin/apa
 	&& /opt/semosshome/semoss-artifacts/artifacts/scripts/update_latest_dev.sh \
 	&& mkdir /opt/semosshome/tmp \
 	&& chmod 777 /opt/apache-tomcat-8.0.41/bin/*.sh \
-	&& apt install -y nginx 
-	
+	&& apt install -y nginx \
+	&& wget -P /opt/semosshome/semoss-artifacts/artifacts/scripts https://dl.minio.io/client/mc/release/linux-amd64/mc \
+	&& chmod 777 /opt/semosshome/semoss-artifacts/artifacts/scripts/mc
  
-WORKDIR /opt/apache-tomcat-8.0.41/bin
+WORKDIR /opt/semosshome/semoss-artifacts/artifacts/scripts
 
 CMD ["catalina.sh", "run"]
