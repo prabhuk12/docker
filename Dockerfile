@@ -36,7 +36,7 @@ RUN wget -P /opt https://archive.apache.org/dist/tomcat/tomcat-8/v8.0.41/bin/apa
 	&& apt install -y nginx \
 	&& wget -P /opt/semoss-artifacts/artifacts/scripts https://dl.minio.io/client/mc/release/linux-amd64/mc \
 	&& chmod 777 /opt/semoss-artifacts/artifacts/scripts/mc \
-	&& wget -P /opt/semoss-artifacts/artifacts/scripts https://dl.minio.io/server/minio/release/linux-amd64/minio \
+	&& wget -P /opt/semoss-artifacts/artifacts/scripts https://dl.minio.io/server/minio/release/linux-amd64/minio \
 	&& chmod 777 /opt/semoss-artifacts/artifacts/scripts/minio
 
 WORKDIR /opt/semoss-artifacts/artifacts/scripts
