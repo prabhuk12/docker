@@ -25,9 +25,6 @@ RUN wget -P /opt https://archive.apache.org/dist/tomcat/tomcat-8/v8.0.41/bin/apa
 	# Clone semoss-artifacts scripts
 	&& git config --global http.sslverify false \
 	&& cd /opt && git clone https://github.com/SEMOSS/semoss-artifacts \
-	
-	# Need to remove this for prod
-	&& cd /opt/semoss-artifacts && git checkout dev \
 	&& chmod 777 /opt/semoss-artifacts/artifacts/scripts/* \
 	
 	# Create semosshome (can be overridden by user later via a shared drive)
