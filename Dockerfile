@@ -24,9 +24,9 @@ ENV PATH=$PATH:/opt/apache-maven-3.5.3/bin:/opt/semoss-artifacts/artifacts/scrip
 RUN wget -P /opt https://archive.apache.org/dist/tomcat/tomcat-8/v8.0.41/bin/apache-tomcat-8.0.41.tar.gz \
 	&& cd /opt && tar -xvf /opt/apache-tomcat-8.0.41.tar.gz && rm /opt/apache-tomcat-8.0.41.tar.gz \
 	&& chmod 777 /opt/apache-tomcat-8.0.41/bin/*.sh \
-	&& wget -P /opt https://apache.claz.org/maven/maven-3/3.5.3/binaries/apache-maven-3.5.3-bin.tar.gz \
-	&& cd /opt && tar -xvf /opt/apache-maven-3.5.3-bin.tar.gz && rm /opt/apache-maven-3.5.3-bin.tar.gz \
-	&& export PATH=$PATH:/opt/apache-maven-3.5.3/bin \
+	&& wget -P /opt https://apache.claz.org/maven/maven-3/3.5.4/binaries/apache-maven-3.5.4-bin.tar.gz \
+	&& cd /opt && tar -xvf /opt/apache-maven-3.5.4-bin.tar.gz && rm /opt/apache-maven-3.5.4-bin.tar.gz \
+	&& export PATH=$PATH:/opt/apache-maven-3.5.4/bin \
 	&& git config --global http.sslverify false \
 	&& cd /opt && git clone https://github.com/SEMOSS/semoss-artifacts \
 	&& chmod 777 /opt/semoss-artifacts/artifacts/scripts/* \
