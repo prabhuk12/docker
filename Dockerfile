@@ -9,7 +9,7 @@ LABEL maintainer="semoss@semoss.org"
 
 ENV LD_LIBRARY_PATH=/usr/lib:/usr/local/lib/R/site-library/rJava/jri
 ENV R_HOME=/usr/lib/R
-ENV PATH=$PATH:/opt/apache-maven-3.5.4/bin:/opt/semoss-artifacts/artifacts/scripts
+ENV PATH=$PATH:/opt/apache-maven-3.5.4/bin:/opt/semoss-artifacts/artifacts/scripts:/opt/apache-tomcat-8.0.41/bin
 #ENV SEMOSS_VERSION=3.3.1
 
 # Install Apache Tomcat
