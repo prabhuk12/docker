@@ -36,7 +36,9 @@ RUN wget -P /opt https://archive.apache.org/dist/tomcat/tomcat-8/v8.0.41/bin/apa
 	&& wget -P /opt/semoss-artifacts/artifacts/scripts https://dl.minio.io/client/mc/release/linux-amd64/mc \
 	&& chmod 777 /opt/semoss-artifacts/artifacts/scripts/mc \
 	&& wget -P /opt/semoss-artifacts/artifacts/scripts https://dl.minio.io/server/minio/release/linux-amd64/minio \
-	&& chmod 777 /opt/semoss-artifacts/artifacts/scripts/minio
+	&& chmod 777 /opt/semoss-artifacts/artifacts/scripts/minio \
+	&& apt install -y fuse \
+	&& curl https://rclone.org/install.sh | bash
 
 WORKDIR /opt/semoss-artifacts/artifacts/scripts
 
