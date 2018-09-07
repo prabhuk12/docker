@@ -39,7 +39,12 @@ RUN wget -P /opt https://archive.apache.org/dist/tomcat/tomcat-8/v8.0.41/bin/apa
 	&& chmod 777 /opt/semoss-artifacts/artifacts/scripts/minio \
 	&& apt install -y nano \
 	&& apt install -y fuse \
-	&& curl https://rclone.org/install.sh | bash
+	&& curl https://rclone.org/install.sh | bash \
+	&& wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | apt-key add - \
+	&& echo "deb http://dl.google.com/linux/chrome/deb/ stable main" | tee /etc/apt/sources.list.d/google-chrome.list \
+	&& apt-get -y update \
+	&& apt install -y google-chrome-stable \
+	&& chmod 777 /opt/semosshome/config/Chromedriver/* 
 
 WORKDIR /opt/semoss-artifacts/artifacts/scripts
 
