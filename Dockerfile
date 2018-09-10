@@ -30,6 +30,7 @@ RUN wget -P /opt https://archive.apache.org/dist/tomcat/tomcat-8/v8.0.41/bin/apa
 	&& cd /opt && git clone https://github.com/SEMOSS/semoss-artifacts \
 	&& chmod 777 /opt/semoss-artifacts/artifacts/scripts/* \
 	&& mkdir /opt/semosshome \
+	&& apt-get -y update \
 	&& apt install -y curl \
 	&& /opt/semoss-artifacts/artifacts/scripts/update_latest_dev.sh \
 	&& apt install -y nginx \
